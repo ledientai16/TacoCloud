@@ -1,0 +1,12 @@
+div.ingredient-group {
+    width: 50%;
+    clear: right;
+    float: left;
+}
+.name-group {
+    clear: left;
+}
+
+.validationError {
+    color: red;
+}
