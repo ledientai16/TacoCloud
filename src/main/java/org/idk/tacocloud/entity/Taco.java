@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -13,6 +14,7 @@ public class Taco {
     private String name;
     @NotNull
     @Size(min = 1, message = "Choose at least 1 ingredient of your taco!")
-    private List<Ingredient> ingredients;
-
+    private List<IngredientRef> ingredients;
+    private Long id;
+    private Date createdAt;
 }

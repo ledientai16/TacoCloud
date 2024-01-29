@@ -2,10 +2,12 @@ package org.idk.tacocloud.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.idk.tacocloud.dao.IngredientRepository;
 import org.idk.tacocloud.entity.Ingredient;
 import org.idk.tacocloud.entity.Ingredient.Type;
 import org.idk.tacocloud.entity.Taco;
 import org.idk.tacocloud.entity.TacoOrder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -20,6 +22,11 @@ import java.util.stream.Collectors;
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
+    private IngredientRepository ingredientRepository;
+    @Autowired
+    public DesignTacoController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
+    }
     // ModelAttribute use to add data to model
     @ModelAttribute
     public void addIngredientToModel(Model model){
